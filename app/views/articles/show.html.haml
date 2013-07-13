@@ -1,3 +1,4 @@
+- require 'rebrit/compiler'
 %p#id= notice
 %p= link_to 'Edit', edit_article_path(@article)
 %p= link_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' }
@@ -6,4 +7,4 @@
 
 %h2= @article.title
 
-%p= @article.body
+!= Rebrit::Compiler.compile(@article.body)
