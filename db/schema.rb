@@ -17,31 +17,36 @@ ActiveRecord::Schema.define(version: 20130713150547) do
   enable_extension "plpgsql"
 
   create_table "articles", force: true do |t|
+    t.integer  "blog_id"
     t.text     "title"
     t.text     "body"
+    t.integer  "markup_syntax_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "blog_id"
-    t.integer  "markup_syntax_id"
   end
 
+  add_index "articles", ["created_at"], name: "index_articles_on_created_at", using: :btree
+
   create_table "blogs", force: true do |t|
+    t.integer  "user_id"
     t.string   "name"
+    t.integer  "markup_syntax_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "markup_syntax_id"
   end
 
   create_table "markup_syntaxes", force: true do |t|
     t.text     "name"
+    t.text     "class_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "class_name"
   end
 
   create_table "users", force: true do |t|
     t.text     "name"
     t.text     "profile"
+    t.text     "email"
+    t.text     "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
