@@ -1,5 +1,7 @@
 class Article < ActiveRecord::Base
-  scope :latests, order('created_at desc').limit(5)
+  def Article.latests
+    order('created_at desc').limit(5)
+  end
 
   belongs_to :blog
   belongs_to :markup_syntax
