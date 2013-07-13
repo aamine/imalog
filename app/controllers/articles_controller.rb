@@ -1,10 +1,4 @@
 class ArticlesController < ApplicationController
-  before_action :set_blog
-
-  def set_blog
-    @blog = Blog.instance
-  end
-
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # Use callbacks to share common setup or constraints between actions.

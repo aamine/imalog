@@ -346,7 +346,7 @@ module Rebrit
 
     def text(str)
       esctable = TextUtils::ESC
-      str.gsub(/(#{NeedESC})|(#{BracketLink})|(#{SeemsURL})/on) {
+      str.gsub(/(#{NeedESC})|(#{BracketLink})|(#{SeemsURL})/o) {
         if    ch  = $1 then esctable[ch]
         elsif tok = $2 then bracket_link(tok[2..-3])
         elsif tok = $3 then seems_url(tok)
