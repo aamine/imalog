@@ -7,5 +7,6 @@ class CreateArticles < ActiveRecord::Migration
       t.integer :markup_syntax_id
       t.timestamps
     end
+    create_index :articles, :created_at
   end
 end

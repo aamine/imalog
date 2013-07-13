@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  scope :latests, order('created_at desc').limit(5)
+
   belongs_to :blog
   belongs_to :markup_syntax
 
@@ -9,10 +11,7 @@ class Article < ActiveRecord::Base
   end
   private :set_markup_syntax
 
-  public
-
   def compile
     markup_syntax.compile(body)
   end
-  public :compile
 end
