@@ -3,8 +3,8 @@
 %p= link_to 'Edit', edit_article_path(@article)
 %p= link_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' }
 
-%h1= link_to 'imalog', articles_path
+%h1= link_to @article.blog.name, articles_path
 
 %h2= @article.title
 
-!= Rebrit::Compiler.compile(@article.body)
+!= @article.compile
