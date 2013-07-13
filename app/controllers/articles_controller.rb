@@ -1,5 +1,22 @@
 class ArticlesController < ApplicationController
+  before_action :set_blog
+
+  def set_blog
+    @blog = Blog.instance
+  end
+
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+  private :set_article
+
+  def article_params
+    params.require(:article).permit(:created, :title, :body)
+  end
+  private :article_params
 
   # GET /articles
   # GET /articles.json
@@ -25,6 +42,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.blog = @blog
 
     respond_to do |format|
       if @article.save
@@ -60,15 +78,4 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:created, :title, :body)
-    end
 end

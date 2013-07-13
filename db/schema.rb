@@ -11,11 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130708163920) do
+ActiveRecord::Schema.define(version: 20130713130809) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "articles", force: true do |t|
     t.text     "title"
     t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "syntax_id"
+    t.integer  "blog_id"
+  end
+
+  create_table "blogs", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "markup_syntax_id"
+  end
+
+  create_table "markup_syntaxes", force: true do |t|
+    t.text     "name"
+    t.text     "class"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "syn_init", id: false, force: true do |t|
+    t.integer  "id"
+    t.text     "name"
+    t.text     "class"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
