@@ -1,0 +1,7 @@
+%p= link_to '[Write New Article]', new_article_path
+
+%h1= link_to 'imalog', articles_path
+
+- @articles.each do |article|
+  %h2= link_to article.title, article
+  %p= article.body
