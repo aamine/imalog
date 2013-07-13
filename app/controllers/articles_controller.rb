@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :require_authorize, except: %i(index show)
+  before_action :set_article, only: %i(show edit update destroy)
 
   # Use callbacks to share common setup or constraints between actions.
   def set_article
@@ -15,7 +16,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.latests
   end
 
   # GET /articles/1

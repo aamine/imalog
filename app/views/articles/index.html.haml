@@ -1,4 +1,10 @@
-%p= link_to '[New Article]', new_article_path
+%ul#articlemenu
+  - if logged_in?
+    %li= current_user.name
+    %li= link_to 'New', new_article_path
+    %li= link_to 'Logout', session_path('logout'), method: 'DELETE'
+  - else
+    %li= link_to 'Login', new_session_path
 
 %h1= link_to @blog.name, articles_path
 
