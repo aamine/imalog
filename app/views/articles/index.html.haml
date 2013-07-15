@@ -1,8 +1,7 @@
-= render partial: 'articlemenu', locals: {mode: 'index'}
-= render partial: 'appmenu'
+#menu
+  = render partial: 'articlemenu', locals: {mode: 'index'}
+  = render partial: 'appmenu'
 
 %h1= link_to @blog.name, blog_path
 
-- @articles.each do |article|
-  %h2= link_to article.title, article
-  != article.compile
+= render partial: 'article', collection: @articles

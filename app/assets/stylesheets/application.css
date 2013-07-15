@@ -11,3 +11,115 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+#pagecontainer {
+    margin: 0px 2% 0px 2%;
+    line-height: 1.5;
+    text-align: left;
+    background-color: white;
+    color: black;
+}
+
+#menu {
+    float: right;
+    font-size: 70%;
+    color: gray;
+}
+
+#appmenu {
+    display: inline;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    margin: 0px 0px 0px 5px;
+    padding: 2px;
+}
+#appmenu ul {
+    left-margin: 0;
+}
+#appmenu li {
+    display: inline;
+    left-margin: 0px;
+}
+
+#articlemenu {
+    display: inline;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    margin: 0px;
+    padding: 2px;
+}
+#articlemenu ul {
+    left-margin: 0;
+}
+#articlemenu li {
+    display: inline;
+    left-margin: 0;
+}
+#menu a,
+#menu a:visited,
+#menu a:hover,
+#menu a:focus,
+#menu a:active {
+    color: #33a;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+h1 {
+    width: 100%;
+    font-size: 200%;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+}
+h1 a,
+h1 a:visited,
+h1 a:hover,
+h1 a:focus,
+h1 a:active {
+    color: #33a;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.article {
+    margin-top: 2em;
+    width: 100%;
+}
+
+h2 {
+    /*border-top: solid 2px #eee;*/
+    border-bottom: dotted 3px #eee;
+    /*border: solid 1px #eee;
+    border-radius: 4px;*/
+    font-size: 140%;
+    margin: 0px;
+}
+h2 a,
+h2 a:visited,
+h2 a:hover,
+h2 a:focus,
+h2 a:active {
+    color: #33a;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.timestamp {
+    /*text-align: right;*/
+    font-size: 70%;
+    color: gray;
+}
+
+p {
+}
+
+ul {
+    margin: 0px;
+}

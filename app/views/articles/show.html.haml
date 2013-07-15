@@ -1,7 +1,7 @@
-= render partial: 'articlemenu', locals: {mode: 'show', article: @article}
+#menu
+  = render partial: 'articlemenu', locals: {mode: 'show', article: @article}
+  = render partial: 'appmenu'
 
 %h1= link_to @blog.name, blog_path
 
-%h2= @article.title
-
-!= @article.compile
+= render partial: 'article', locals: {article: @article}
