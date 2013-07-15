@@ -13,6 +13,8 @@ class Article < ActiveRecord::Base
   end
   private :set_markup_syntax
 
+  validates_presence_of :title
+
   def compile
     markup_syntax.compile(body)
   end

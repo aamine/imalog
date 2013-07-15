@@ -1,0 +1,4 @@
+.article
+  %h2= link_to article.title, article
+  .timestamp= article.created_at.strftime('%Y-%m-%d %H:%M') + (article.updated_at != article.created_at ? article.updated_at.strftime(' (last updated: %Y-%m-%d %H:%M)') : '')
+  != article.compile
