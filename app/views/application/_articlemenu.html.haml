@@ -1,0 +1,16 @@
+- if logged_in?
+  %ul#articlemenu
+    - if mode != 'new'
+      %li= link_to 'New', new_article_path
+    - else
+      %li New
+
+    - if mode == 'show'
+      %li= link_to 'Edit', edit_article_path(article)
+    - else
+      %li Edit
+
+    - if mode == 'show' or mode == 'edit'
+      %li= link_to 'Delete', article, method: :delete, data: { confirm: 'この記事を削除しますか？' }
+    - else
+      %li Delete

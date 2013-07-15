@@ -1,0 +1,6 @@
+%ul#appmenu
+  - if logged_in?
+    %li= current_user.name
+    %li= link_to 'Logout', session_path('logout'), method: 'DELETE'
+  - else
+    %li= link_to 'Login', new_session_path

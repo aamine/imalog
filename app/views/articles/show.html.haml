@@ -1,14 +1,6 @@
-%ul#articlemenu
-  - if logged_in?
-    %li= current_user.name
-    %li= link_to 'New', new_article_path
-    %li= link_to 'Edit', edit_article_path(@article)
-    %li= link_to 'Delete', @article, method: :delete, data: { confirm: 'この記事を削除しますか？' }
-    %li= link_to 'Logout', session_path('logout'), method: 'DELETE', confirm: 'ログアウトしますか？'
-  - else
-    %li= link_to 'Login', new_session_path
+= render partial: 'articlemenu', locals: {mode: 'show', article: @article}
 
-%h1= link_to @article.blog.name, articles_path
+%h1= link_to @blog.name, blog_path
 
 %h2= @article.title
 

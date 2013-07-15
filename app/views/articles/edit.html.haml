@@ -1,3 +1,6 @@
-%h1= link_to @blog.name, articles_path
+= render partial: 'articlemenu', locals: {mode: 'edit', article: @article}
+= render partial: 'appmenu'
+
+%h1= link_to @blog.name, blog_path
 
 = render 'form'

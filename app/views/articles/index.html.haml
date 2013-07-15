@@ -1,12 +1,7 @@
-%ul#articlemenu
-  - if logged_in?
-    %li= current_user.name
-    %li= link_to 'New', new_article_path
-    %li= link_to 'Logout', session_path('logout'), method: 'DELETE'
-  - else
-    %li= link_to 'Login', new_session_path
+= render partial: 'articlemenu', locals: {mode: 'index'}
+= render partial: 'appmenu'
 
-%h1= link_to @blog.name, articles_path
+%h1= link_to @blog.name, blog_path
 
 - @articles.each do |article|
   %h2= link_to article.title, article
