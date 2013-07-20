@@ -1,29 +1,20 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+/* application.css */
 
 body {
     margin: 0px;
     padding: 0px;
     width: 100%;
+    /*font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;*/
+    font-family: 'Lucida Grande', 'Hiragino Mincho ProN', Meiryo, sans-serif;
+    font-size: 90%;
+    line-height: 1.5;
+    background-color: white;
+    color: black;
 }
 
 #pagecontainer {
     margin: 0px 2% 0px 2%;
-    line-height: 1.5;
     text-align: left;
-    background-color: white;
-    color: black;
 }
 
 #menu {
@@ -144,6 +135,12 @@ td {
     padding: 3px 0.4em;
 }
 
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-family: monospace;
+}
+
 form {
     margin-top: 2em;
 }
@@ -168,4 +165,47 @@ div.actions input {
     height: 40px;
     font-size: 300%;
     float: right;
+}
+
+/*
+ * scaffold
+ */
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
 }
