@@ -1,0 +1,6 @@
+- unless groups.empty?
+  .article_groups
+    %h2= caption
+    %ul
+      - groups.each do |group|
+        %li= link_to_if false, group.display_name, group

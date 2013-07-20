@@ -14,9 +14,10 @@ class ArticlesController < ApplicationController
   private :article_params
 
   # GET /articles
-  # GET /articles.json
   def index
-    @articles = Article.latests
+    threshold = 20.days.ago
+    @articles, @previous_articles = Article.latests(threshold, 5)
+    @groups = ArticleGroup.timeline
   end
 
   # GET /articles/1

@@ -1,6 +1,13 @@
 class Article < ActiveRecord::Base
-  def Article.latests
-    order('created_at desc').limit(5)
+  ##
+  # articles newer than +origin+.
+  # Articles are splitted into two groups, latest +n+ articles and older ones.
+  def Article.latests(origin, n)
+    list = where('created_at > ?', origin).order('created_at desc')
+    return list[0, n], (list[n..-1] || [])
+  end
+
+  def Article.calendar_groups
   end
 
   belongs_to :blog

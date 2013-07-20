@@ -5,3 +5,5 @@
 %h1= link_to @blog.name, blog_path
 
 = render partial: 'article', collection: @articles
+= render partial: 'articles_collapsed', locals: {caption: "これ以前の記事", articles: @previous_articles}
+= render partial: 'article_groups', locals: {caption: "さらに過去の記事", groups: @groups}
